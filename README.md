@@ -1,5 +1,3 @@
-<img src="https://capsule-render.vercel.app/api?type=rect&color=40E0D0&height=150" width="100%" alt="banner">
-
 # Laksh Goyal
 
 ML systems and agentic AI. CS @ UC San Diego (2028).
