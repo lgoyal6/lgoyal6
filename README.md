@@ -8,6 +8,10 @@ I like owning the whole path from an idea to something that runs. I test what
 happens when it breaks, measure the tradeoffs, and write about what worked,
 what failed, and what I learned.
 
+Currently a Software Engineer Intern at [DR Financial](https://drfinancial.ai/),
+after working on AI platform systems at [GMI Cloud](https://www.linkedin.com/company/gmi-cloud-ai/)
+and ML systems at [Qualcomm Institute](https://www.linkedin.com/company/qualcomm-institute/).
+
 CS @ [UC San Diego](https://www.linkedin.com/school/ucsandiego/), class of 2028.
 
 [Website](https://lakshgoyal.com) · [LinkedIn](https://linkedin.com/in/lakshgoyal) · [Email](mailto:lakshgoyal06@gmail.com)
@@ -53,16 +57,14 @@ I use amac to keep track of the agents and automations behind my daily workflows
 ## Experience
 
 - **[DR Financial](https://drfinancial.ai/):** Software Engineer Intern · Jul 2026 - Present
-- **[Startup Incubator](https://www.linkedin.com/company/startup-incubatorsd/):** AI Automations & GTM Engineer · Mar 2026 - Present
+- **[Startup Incubator](https://www.linkedin.com/company/startup-incubatorsd/):** AI Automations and GTM Engineer · Mar 2026 - Present
 - **[UC San Diego](https://www.linkedin.com/school/ucsandiego/):** Technical Assistant · Sep 2025 - Present
 - **[GMI Cloud](https://www.linkedin.com/company/gmi-cloud-ai/):** Software Engineer Intern, AI Platform · Jun 2026 - Sep 2026
 - **[Qualcomm Institute](https://www.linkedin.com/company/qualcomm-institute/), [Engineers for Exploration](https://www.linkedin.com/company/e4e-ucsd/):** Software Engineer, ML Systems · Oct 2025 - Jun 2026
 - **[Inovasity](https://www.linkedin.com/company/inovasity/):** Software Engineer Intern, Applied ML · Jan 2026 - Jun 2026
 - **[Xyntopia (Taskyon)](https://www.linkedin.com/company/xyntopia/):** Software Engineer Intern, LLM Systems · Jun 2025 - Oct 2025
-
-## Community and leadership
-
 - **[Google](https://www.linkedin.com/company/google/) x Project Basta:** Code2Career Fellow · Feb 2026 - May 2026
+## Community and leadership
 
 - **[AWS Student Builder Club at UC San Diego](https://www.linkedin.com/company/aws-cloud-club-at-uc-san-diego/):** Technical Workshops and Projects Lead
 - **[OpenAI Student Collective at UC San Diego](https://www.linkedin.com/company/openai/):** Lead
