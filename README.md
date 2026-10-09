@@ -1,192 +1,92 @@
 # Laksh Goyal
 
-I write systems software from scratch, mostly C++20, Go and Rust, and I publish
-the benchmarks where my own work loses. CS @ UC San Diego, class of 2028.
+I build backend systems, AI infrastructure, and automations I use myself.
+That includes storage engines, shared GPU queues, tools for managing coding agents,
+and pipelines that bring me the news and job opportunities I care about.
 
-[LinkedIn](https://linkedin.com/in/lakshgoyal) · [lakshgoyal.com](https://lakshgoyal.com) · lakshgoyal06@gmail.com
+I like owning the whole path from an idea to something that runs. I test what
+happens when it breaks, measure the tradeoffs, and write about what worked,
+what failed, and what I learned.
 
----
+CS @ [UC San Diego](https://www.linkedin.com/school/ucsandiego/), class of 2028.
 
-## Where I've worked
+[Website](https://lakshgoyal.com) · [LinkedIn](https://linkedin.com/in/lakshgoyal) · [Email](mailto:lakshgoyal06@gmail.com)
 
-**GMI Cloud** · SWE Intern, AI Platform · Jun 2026 to now
-Built Mint, the lead-research tool the GTM team runs on. Shipped a model-routing
-layer that cut inference cost 47%. Benchmarked 8 routing setups on cost per
-solved task.
+## Start here
 
-**DR Financial** · SWE Intern · Jul 2026 to now
-Built the production pipeline that decides whether a doctor can be contracted.
-Raised auto-clearance from 41% to 73%. Ran the adversarial miss-rate testing.
+- **[Strata](https://github.com/lgoyal6/strata):** A C++ storage engine with crash tests that check whether acknowledged writes survive process failures. [Try the demo](https://lgoyal6.github.io/strata/).
+- **[amac](https://github.com/lgoyal6/amac):** One place to see my coding agents, automations, permission prompts, and follow-up work, including from my phone.
+- **[Winnow](https://github.com/TC960/winnow):** Compresses LLM inputs and checks how much useful information survives, alongside token savings and latency.
 
-**Qualcomm Institute, Engineers for Exploration** · SWE, ML Systems · Oct 2025 to Jun 2026
-Built the wildlife-audio training pipeline and doubled the usable data coming out
-of multi-terabyte archives. Wrote the boundary-aware eval metric the group still
-gates releases on.
+## Backend systems
 
-**AWS Student Builder Club @ UC San Diego** · Technical Lead
-Ran workshops on EC2, EKS, Lambda and S3. Built the shared GPU queue its 20
-members submit training jobs to.
+- **[Taut](https://github.com/lgoyal6/taut):** Reliable networking over UDP, with benchmarks showing where it beats TCP and where it loses.
+- **[Franq](https://github.com/lgoyal6/franq):** A Go message queue with disk-backed storage and crash tests.
+- **[Tollgate](https://github.com/lgoyal6/tollgate):** Lets a team share an LLM provider key with individual limits and revocation.
 
----
+## AI infrastructure
 
-## Systems
+- **[GPU Broker](https://github.com/lgoyal6/gpu-broker):** A training-job queue across cloud, spot, and lab GPUs, with checkpoints and interruption handling.
+- **[decode-anatomy](https://github.com/lgoyal6/decode-anatomy):** A profiling study of where LLM generation time goes on an RTX A6000.
 
-**[Strata](https://github.com/lgoyal6/strata)** · LSM-tree storage engine in C++20
-Beats RocksDB 50x on synchronous commits through group commit, and I publish the
-workloads where RocksDB wins. Killed it mid-write 11,149 times and it recovered
-every one of 2.2M acknowledged writes.
-`C++20` `libFuzzer` `ASan/UBSan/TSan` · [demo](https://lgoyal6.github.io/strata/)
+## Automations
 
-**[Taut](https://github.com/lgoyal6/taut)** · Reliable-UDP transport library
-6x lower worst-case latency than the kernel at 5% packet loss, 12x at 20%. The
-kernel wins bulk throughput by 27x, which is in the README rather than left out.
-`C++20` `epoll` `netem` · [demo](https://lgoyal6.github.io/taut/)
+I use amac to keep track of the agents and automations behind my daily workflows.
 
-**[Franq](https://github.com/lgoyal6/franq)** · Crash-safe message queue, Go stdlib only
-Durable writes scale 59x to 22,979 records/s by batching every concurrent commit
-into one fsync. Crashed the live server 40 times mid-traffic and still delivered
-all 17,990 acknowledged messages exactly once.
-`Go` `write-ahead log` `group commit`
+- **[Morning Brief](https://github.com/lgoyal6/morning-brief):** Builds a personal newspaper from news and research sources, then delivers a PDF to Discord.
+- **[Job Discovery](https://github.com/lgoyal6/job-discovery):** Finds early-career roles, filters them, removes duplicates, and emails a digest.
 
-**[Tollgate](https://github.com/lgoyal6/tollgate)** · Multi-tenant gateway for shared LLM keys
-Lets a team share one paid API key with per-member limits and revocation. Rate
-limiting stays exact past one replica: 300 req/s holds across 3 Kubernetes
-replicas through Redis Lua, where per-replica limiting admitted 3x the ceiling.
-`Go` `Redis` `Kubernetes` `Terraform` · [demo](https://lgoyal6.github.io/tollgate/)
+## Data systems
 
-**[Basis](https://github.com/lgoyal6/basis)** · A ledger that argues with your broker
-Recomputes every position from your own trade history and reports each
-disagreement. Found 14 cost-basis errors across 9 real brokerage accounts.
-`Java 21` `Spring Boot` `PostgreSQL` · [live](https://basis-web-production.up.railway.app)
+- **[TickVault](https://github.com/lgoyal6/tickvault):** Records crypto order books and reports gaps and unverifiable data so readers know which windows to trust.
+- **[noisy-rag-bench](https://github.com/lgoyal6/noisy-rag-bench):** Tests how document noise affects retrieval and whether answers can still be recovered.
 
-**[TickVault](https://github.com/lgoyal6/tickvault)** · Full-depth order book archive
-Records order books across 6 crypto venues in Rust at 2.7M rows/s, capturing 100%
-of wall-clock time on 5 of 6 feeds and publishing the sixth as 0% verified rather
-than rounding it up.
-`Rust` `Arrow` `Parquet` · [PyPI](https://pypi.org/project/tickvault-ob/) · [demo](https://lgoyal6.github.io/tickvault/)
+## Writing
 
----
+[The bugs that only exist after you deploy](https://lakshgoyal.com/blog/deploy-only-bugs.html): what broke when I deployed Tollgate, and what I changed.
 
-## GPU and inference
+## Open source and recognition
 
-**[Winnow](https://github.com/lgoyal6/winnow)** · Quantized KV cache with a fused Triton kernel
-One kernel unpacks, gathers from the codebook and inverse-rotates in a single GPU
-launch, lifting dequantization 34x from 8 GB/s to 286 GB/s for 0.47 LongBench-E
-points. KV memory drops 1.97x at 8-bit.
-`CUDA` `Triton` `PyTorch` `vLLM`
+- **Open source contributor to [Awkward Array](https://github.com/scikit-hep/awkward).**
+- **Hackathon winner:** projects include [Vigil](https://devpost.com/software/vigil-r1bpqc), [Locus](https://github.com/lgoyal6/Locus), [Antibody](https://github.com/psagar29/Antibody), [EduForge](https://github.com/lgoyal6/EduForge), and [Pylon](https://devpost.com/software/pylon-3djs6c).
 
-**[Firecracker live migration](https://github.com/lgoyal6/fc-live-migration)** · Moving a running microVM between hosts
-Firecracker's maintainers closed the request for this. A ~250-line Rust patch to
-the VMM adds it anyway: blackout under 18 ms against a 30 ms budget, with open
-TCP connections surviving the host switch.
-`Rust` `Go` `KVM`
+## Experience
 
-**[GPU Broker](https://github.com/lgoyal6/gpu-broker)** · One queue across cloud, spot and a lab GPU
-Survived 315 spot interruptions across 100 concurrent training jobs with zero
-work lost. Reclaimed 16% of the club's shared credit pool from machines that were
-held but not used.
-`Python` `boto3` `FastAPI` · [live](https://gpu-broker-status.vercel.app)
+- **[DR Financial](https://drfinancial.ai/):** Software Engineer Intern · Jul 2026 - Present
+- **[Startup Incubator](https://www.linkedin.com/company/startup-incubatorsd/):** AI Automations & GTM Engineer · Mar 2026 - Present
+- **[UC San Diego](https://www.linkedin.com/school/ucsandiego/):** Technical Assistant · Sep 2025 - Present
+- **[GMI Cloud](https://www.linkedin.com/company/gmi-cloud-ai/):** Software Engineer Intern, AI Platform · Jun 2026 - Sep 2026
+- **[Qualcomm Institute](https://www.linkedin.com/company/qualcomm-institute/), [Engineers for Exploration](https://www.linkedin.com/company/e4e-ucsd/):** Software Engineer, ML Systems · Oct 2025 - Jun 2026
+- **[Inovasity](https://www.linkedin.com/company/inovasity/):** Software Engineer Intern, Applied ML · Jan 2026 - Jun 2026
+- **[Xyntopia (Taskyon)](https://www.linkedin.com/company/xyntopia/):** Software Engineer Intern, LLM Systems · Jun 2025 - Oct 2025
 
-**[decode-anatomy](https://github.com/lgoyal6/decode-anatomy)** · Where a decode step actually goes
-Empirical roofline for an RTX A6000: compute-bound is 0.0% at every point, and
-the biggest long-context kernel is a memcpy.
-`PyTorch` `Nsight`
+## Community and leadership
 
----
+- **[Google](https://www.linkedin.com/company/google/) x Project Basta:** Code2Career Fellow · Feb 2026 - May 2026
 
-## Things people use
+- **[AWS Student Builder Club at UC San Diego](https://www.linkedin.com/company/aws-cloud-club-at-uc-san-diego/):** Technical Workshops and Projects Lead
+- **[OpenAI Student Collective at UC San Diego](https://www.linkedin.com/company/openai/):** Lead
+- **[Adobe](https://www.linkedin.com/company/adobe/):** Student Ambassador
 
-**[amac](https://github.com/lgoyal6/amac)** · Control plane for the AI coding agents on your Mac
-Every session and automation on one page, on your phone, over Tailscale. Work
-queue with fencing, proved against SIGKILL.
-`Go` `tmux` `Tailscale`
+## Main stack
 
-**[Hacklist SF](https://luma.com/hacklist-sf)** · Hackathon calendar for the Bay Area
-Around 100 subscribers. Seven keyless sources feed one classifier, and the
-pipeline refuses to publish an event it cannot date, so nobody sees a dead
-listing. [Source](https://github.com/lgoyal6/hacklist-sf)
-`Next.js` `Cloudflare Workers` `iCalendar`
+**Languages:** Python, C++20, Go, Rust, TypeScript, JavaScript, Java, C, SQL, Bash, HTML/CSS
 
-**[third-degree](https://github.com/lgoyal6/third-degree)** · Get grilled on a repo you built
-Paste a repo, get a guided map of it, then up to 10 questions climbing from
-language fundamentals to what breaks if you rename a schema field.
-`TypeScript` `Next.js`
+**Backend and automation:** FastAPI, Spring Boot, Node.js, PostgreSQL, Redis, n8n
 
-**[LooseAPI](https://github.com/lgoyal6/LooseAPI)** · Dev and subscription spend from your inbox
-Projects cloud credit balances to zero before the account shuts off.
-`JavaScript` `TypeScript`
+**AI and data:** PyTorch, CUDA, Triton, vLLM, NumPy, pandas, Arrow, Parquet
 
----
-
-## Open source contributions
-
----
-
-## Recognition
-
-**6x hackathon winner**
-
-- [Vigil](https://github.com/lgoyal6/vigil) | 1st, Akash track, AWS Loop Engineering
-- [Locus](https://github.com/lgoyal6/Locus) | 1st, Convex track
-- [Antibody](https://github.com/psagar29/Antibody) | 1st, Runloop and Reflex tracks
-- [EduForge](https://github.com/lgoyal6/EduForge) | 2nd, Replay track, AWS Self-Evolving
-- [Pylon](https://github.com/lgoyal6/pylon) | 2nd, BowCapital Defense
-
-**Also**
-
-- OpenAI Student Collective, 1 of 140 U.S. leads across 70 universities from 25,000 applicants
-- Published through the Lumiere Research Program, top 10% of ~200 submissions
-- 2nd place, World Robotics Olympiad India | autonomous pipeline inspection robot
-
----
+**Web and infrastructure:** React, Next.js, Docker, Kubernetes, AWS, Terraform, GitHub Actions
 
 <details>
-<summary><b>Full stack</b></summary>
-<br>
+<summary>Also familiar with</summary>
 
-**Languages**
-C++20 · C · Go · Rust · Python · Java 21 · TypeScript · JavaScript · SQL · Bash
+**Languages:** Swift, Kotlin, Ruby, Scala, C#, R, MATLAB, Julia, Lua, PHP, Perl, Zig, Jac, VBA, PowerShell, Assembly
 
-**Systems and debugging**
-CMake · gdb · libFuzzer · ASan/UBSan/TSan · fault injection · deterministic
-replay · perf profiling · netem · epoll · io_uring · write-ahead logging · group
-commit · SWIM
+**ML and inference:** TensorFlow, JAX, scikit-learn, ONNX, LangGraph, Hugging Face Transformers, Ray, Optuna
 
-**GPU and inference**
-CUDA · Triton · PyTorch · Transformers · vLLM · CUDA graphs · KV-cache
-quantization · Modal · ONNX
+**Data tools:** Spark, Kafka, Airflow, dbt, Snowflake, BigQuery, ClickHouse, DuckDB, Power BI
 
-**Backend**
-FastAPI · Spring Boot · Flask · Node · gRPC · REST · Pydantic · async job
-pipelines · WebSockets · Redis
-
-**Data and storage**
-PostgreSQL · Redis · SQLite · Supabase · Cloudflare D1 · Arrow · Parquet
-
-**Infra and tooling**
-Docker · Kubernetes · AWS EKS/EC2/Lambda/S3/IAM · Terraform · Helm · Cloudflare
-Workers · GitHub Actions · pytest · JUnit 5 · Playwright · k6 · Linux
-
-**Frontend**
-React · Next.js (App Router) · Tailwind · Zustand · Framer Motion · deck.gl ·
-Mapbox GL · React Native
-
-**ML**
-scikit-learn · MONAI · LightGBM · OpenCV · NumPy · pandas · SciPy · torchaudio ·
-Optuna · Ray Tune · LangGraph · LiteLLM
-
-</details>
-
-<details>
-<summary><b>Freelance</b></summary>
-<br>
-
-I take on a limited number of contracts. Best fit:
-
-- Backend and distributed systems: storage, queues, gateways, and the durability and concurrency guarantees underneath them
-- LLM and agent systems: routing and cost optimization, RAG pipelines, eval harnesses
-- ML and GPU infrastructure: training pipelines, inference serving, benchmarking that reports the losing axis
-
-Reach me at lakshgoyal06@gmail.com.
+**Platforms and tooling:** GCP, Azure, Cloudflare, Modal, Supabase, Helm, Linux, CMake, gdb, Nsight, pytest, Playwright
 
 </details>
