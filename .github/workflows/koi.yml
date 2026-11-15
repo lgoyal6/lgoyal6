@@ -1,0 +1,48 @@
+name: Koi
+
+on:
+  schedule:
+    - cron: "20 0 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/koi.yml]
+
+permissions:
+  contents: write
+
+concurrency: koi
+
+jobs:
+  koi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: yalongwastaken/git-koi@v1.0.2
+        with:
+          login: lgoyal6
+          body: white
+      - name: Publish the koi to its asset branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          output_dir=$(mktemp -d)
+          cp koi/koi.gif "$output_dir/koi.gif"
+          cd "$output_dir"
+          git init --quiet --initial-branch=koi
+          git remote add origin "https://github.com/$GITHUB_REPOSITORY.git"
+          gh auth setup-git
+          if git ls-remote --exit-code --heads origin koi; then
+            git fetch --quiet origin koi
+            git reset --mixed FETCH_HEAD
+          fi
+          git add koi.gif
+          if git diff --cached --quiet; then
+            echo "The koi is unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --quiet --message "Refresh profile koi"
+          git push --quiet origin HEAD:koi
