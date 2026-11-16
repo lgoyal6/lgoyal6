@@ -14,7 +14,7 @@ I like taking systems from idea to deployment, profiling bottlenecks, testing fa
 
 Currently a **Software Engineer Intern at DR Financial**, building healthcare workflow automation. Previously worked on AI platform systems at **GMI Cloud** and ML systems at **Qualcomm Institute**.
 
-## Things I've built
+## Shipped projects
 
 - **Leaf** is a native macOS file-search app. Search by name, contents, file type, or date, with matching lines and PDF pages shown in the results. Built with Swift, SwiftUI, and AppKit. [Code](https://github.com/lgoyal6/findr) · [Download](https://github.com/lgoyal6/findr/releases/latest)
 
@@ -54,6 +54,10 @@ A few highlights from projects built with my teams.
 
 Mostly working in **Python, C++, Go, TypeScript, and Swift**, with **PyTorch, PostgreSQL, Docker, and AWS**.
 
-<a href="https://github.com/yalongwastaken/git-koi">
-  <img src="https://raw.githubusercontent.com/lgoyal6/lgoyal6/koi/koi.gif" width="256" alt="A pixel-art koi shaped by my public GitHub activity" />
-</a>
+<p align="center">
+  <a href="https://github.com/yalongwastaken/git-koi">
+    <img src="https://raw.githubusercontent.com/lgoyal6/lgoyal6/koi/koi.gif" width="280" alt="A pixel-art koi shaped by my public GitHub activity" />
+  </a>
+  <br />
+  <a href="https://github.com/lgoyal6?tab=overview">View GitHub activity</a>
+</p>
